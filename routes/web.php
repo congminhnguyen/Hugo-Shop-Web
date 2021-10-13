@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\Admin\MainController;
+use App\Http\Controllers\Admin\Users\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,4 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('admin/login',[LoginController::class, 'index']);
+Route::get('admin/login',[LoginController::class, 'index'])->name('login');
+
+Route::post('admin/login/store',[LoginController::class, 'store']);
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('admin/home',[MainController::class, 'index'])->name('admin');
+});
