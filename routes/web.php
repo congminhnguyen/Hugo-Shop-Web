@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\Users\LoginController;
 use Illuminate\Support\Facades\Route;
@@ -20,9 +21,18 @@ Route::get('/', function () {
 });
 
 Route::get('admin/login',[LoginController::class, 'index'])->name('login');
-
 Route::post('admin/login/store',[LoginController::class, 'store']);
 
+
 Route::middleware(['auth'])->group(function () {
-    Route::get('admin/home',[MainController::class, 'index'])->name('admin');
+    Route::prefix('admin')->group(function(){
+        Route::get('/',[MainController::class, 'index']);
+        Route::get('home',[MainController::class, 'index'])->name('admin');
+
+        #menu
+        Route::prefix('categories')->group(function(){
+            Route::get('add', [CategoryController::class, 'create']);
+            Route::post('add', [CategoryController::class, 'store']);
+        });
+    });
 });
