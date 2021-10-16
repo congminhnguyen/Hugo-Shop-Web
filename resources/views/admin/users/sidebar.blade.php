@@ -51,7 +51,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/menus/list" class="nav-link">
+                <a href="/admin/categories/list" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>List Categories</p>
                 </a>
