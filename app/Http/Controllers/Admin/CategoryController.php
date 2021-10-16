@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Category\CreateFormRequest;
 use Illuminate\Http\Request;
 use App\Http\Services\Category\CategoryService;
+use Illuminate\Http\JsonResponse;
 
 class CategoryController extends Controller
 {
@@ -23,7 +24,29 @@ class CategoryController extends Controller
     }
 
     public function store(CreateFormRequest $request){
-        $result = $this->categoryService->create($request);
+        $this->categoryService->create($request);
         return redirect()->back();
+    }
+
+    public function index(){
+        return view('admin.category.list',[
+            'title' => "Categories List",
+            'categories' => $this->categoryService->getAll()
+        ]);
+    }
+
+    public function destroy(Request $request):JsonResponse
+    {
+        $result = $this->categoryService->destroy($request);
+        if($result){
+            return response()->json([
+                'error' => false,
+                'message' => 'Successfully deleted.'
+            ]);
+        }
+
+        return response()->json([
+            'error' => true
+        ]);
     }
 }

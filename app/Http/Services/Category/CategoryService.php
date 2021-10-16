@@ -14,6 +14,10 @@ class CategoryService{
         return Category::where('parent_id',0)->get();
     }
 
+    public function getAll(){
+        return Category::orderbyDesc('id')->paginate(20);
+    }
+
     public function create($request){
         try{
             Category::create([
@@ -31,5 +35,16 @@ class CategoryService{
             return false;
         }
         return true;
+    }
+
+    public function destroy($request){
+        $id = (int)$request->input('id');
+        $category = Category::where('id',$id)->first();
+
+        if($category){
+            return Category::where('id',$id)->orWhere('parent_id',$id)->delete();
+        }
+
+        return false;
     }
 }
