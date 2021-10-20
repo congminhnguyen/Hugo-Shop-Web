@@ -51,6 +51,7 @@
               <div class="card-header">
                 <h3>{{$title}}</h3>
               </div>
+                @include('admin.users.alert')
                 @yield('content')
             </div>
           </div>

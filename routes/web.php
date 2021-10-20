@@ -34,6 +34,8 @@ Route::middleware(['auth'])->group(function () {
             Route::get('add', [CategoryController::class, 'create']);
             Route::post('add', [CategoryController::class, 'store']);
             Route::get('list',[CategoryController::class, 'index']);
+            Route::get('edit/{category}',[CategoryController::class, 'show']);
+            Route::post('edit/{category}',[CategoryController::class, 'update']);
             Route::delete('destroy',[CategoryController::class, 'destroy']);
         });
     });

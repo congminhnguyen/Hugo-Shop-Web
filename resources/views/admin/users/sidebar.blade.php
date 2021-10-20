@@ -45,21 +45,15 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/admin/categories/add" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add Category</p>
-                </a>
-              </li>
-              <li class="nav-item">
                 <a href="/admin/categories/list" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>List Categories</p>
+                  <p>List</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/admin/categories/add" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>...</p>
+                  <p>Add</p>
                 </a>
               </li>
             </ul>

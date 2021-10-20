@@ -14,7 +14,7 @@ class Helper
                     <tr>
                         <td>'. $category->id .'</td>
                         <td>'. $char . $category->name .'</td>
-                        <td>'. $category->active .'</td>
+                        <td>'. self::active($category->active) .'</td>
                         <td>'. $category->updated_at .'</td>
                         <td>
                             <a href="/admin/categories/edit/'. $category->id .'" class="btn btn-primary btn-sm">
@@ -34,5 +34,9 @@ class Helper
             }
         }
         return $html;
+    }
+
+    public static function active($active = 0){
+        return $active == 0 ? '<span class="btn btn-xs btn-danger">No</span>' : '<span class="btn btn-xs btn-success">Yes</span>';
     }
 }
