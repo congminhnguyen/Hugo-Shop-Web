@@ -34,6 +34,27 @@ class CategoryService{
             Session::flash('error',$err->getMessage());
             return false;
         }
+        
+    }
+
+    public function update($request, $category){
+        try{
+            if($request->input('parent_id') != $category->id ){
+                $category->parent_id = (int) $request->input('parent_id');
+            }
+
+            $category->name = (string)$request->input('name');
+            $category->description =(string) $request->input('description');
+            $category->content = (string)$request->input('content');
+            $category->active = (string) $request->input('active');
+            
+            $category->save();
+            Session::flash('success','Successfully Updated');
+        }
+        catch(Exception $err){
+            Session::flash('error',$err->getMessage());
+            return false;
+        }
         return true;
     }
 

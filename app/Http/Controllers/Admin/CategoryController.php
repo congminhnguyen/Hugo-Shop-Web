@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Category\CreateFormRequest;
 use Illuminate\Http\Request;
 use App\Http\Services\Category\CategoryService;
+use App\Models\Category;
 use Illuminate\Http\JsonResponse;
 
 class CategoryController extends Controller
@@ -30,9 +31,23 @@ class CategoryController extends Controller
 
     public function index(){
         return view('admin.category.list',[
-            'title' => "Categories List",
+            'title' => "Category List",
             'categories' => $this->categoryService->getAll()
         ]);
+    }
+
+    public function show(Category $category){
+        return view('admin.category.edit',[
+            'title' => "Edit Categories - " . $category->name,
+            'category' => $category,
+            'categories'=>$this->categoryService->getParent()
+        ]);
+    }
+
+    public function update(Category $category, CreateFormRequest $request){
+        $this->categoryService->update($request, $category);
+        return redirect('admin/categories/list');
+        // return redirect()->back();
     }
 
     public function destroy(Request $request):JsonResponse
