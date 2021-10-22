@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\MainController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\Admin\Users\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,7 +31,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/',[MainController::class, 'index']);
         Route::get('home',[MainController::class, 'index'])->name('admin');
 
-        #menu
+        #category
         Route::prefix('categories')->group(function(){
             Route::get('add', [CategoryController::class, 'create']);
             Route::post('add', [CategoryController::class, 'store']);
@@ -38,5 +40,15 @@ Route::middleware(['auth'])->group(function () {
             Route::post('edit/{category}',[CategoryController::class, 'update']);
             Route::delete('destroy',[CategoryController::class, 'destroy']);
         });
+
+        #product
+        Route::prefix('products')->group(function(){
+            Route::get('add', [ProductController::class, 'create']);
+            Route::post('add', [ProductController::class, 'store']);
+            Route::get('list',[ProductController::class, 'index']);
+        });
+
+        #upload
+        Route::post('upload/services', [UploadController::class, 'store']);
     });
 });
