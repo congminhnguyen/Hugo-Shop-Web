@@ -61,7 +61,7 @@
 
           <li class="nav-item menu-open">
             <a href="#" class="nav-link">
-              <i class="nav-icon fab fa-product-hunt"></i>
+              <i class="nav-icon fas fa-th-large"></i>
               <p>
                 Products
                 <i class="right fas fa-angle-left"></i>
@@ -76,6 +76,30 @@
               </li>
               <li class="nav-item">
                 <a href="/admin/products/add" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-images"></i>
+              <p>
+                Sliders
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/admin/sliders/list" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>List</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/admin/sliders/add" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add</p>
                 </a>
