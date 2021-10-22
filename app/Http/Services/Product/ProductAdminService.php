@@ -23,7 +23,7 @@ class ProductAdminService
 
     protected function isValidPrice($request){
         if($request->input('price') != 0 
-            &&  $request->input('price_sale' != 0)
+            &&  $request->input('price_sale') != 0
             && $request->input('price_sale') >= $request->input('price'))
         {
             Session::flash('error', 'Price_sale must be less than Price');
@@ -53,5 +53,31 @@ class ProductAdminService
             return false;
         }
         return true;
+    }
+
+    public function update($request, $product){
+        $isValidPrice = $this->isValidPrice($request);
+        if($isValidPrice === false){
+            return false;
+        }
+        try{
+            $product->fill($request->input());
+            $product->save();
+            Session::flash('success', 'Updated Successfully');
+        }catch(Exception $err){
+            Session::flash('error', 'Update fail');
+            Log::info($err->getMessage());
+            return false;
+        }
+        return true;
+    }
+
+    public function delete($request){   
+        $id = $request->input('id');
+        $product = Product::where('id', $id)->first();
+        if($product){
+            return Product::where('id', $id)->delete();
+        }
+        return false;
     }
 }
