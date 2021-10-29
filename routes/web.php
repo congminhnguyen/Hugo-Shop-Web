@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\Admin\Users\LoginController;
+use App\Http\Controllers\MainController as ControllersMainController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,9 +20,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ControllersMainController::class, 'index']);
 
 Route::get('admin/login',[LoginController::class, 'index'])->name('login');
 Route::post('admin/login/store',[LoginController::class, 'store']);

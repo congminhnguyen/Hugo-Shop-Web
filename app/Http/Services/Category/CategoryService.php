@@ -68,4 +68,8 @@ class CategoryService{
 
         return false;
     }
+
+    public function show(){
+        return Category::select('id', 'name')->where('parent_id',0)->orderBy('id')->get();
+    }
 }
