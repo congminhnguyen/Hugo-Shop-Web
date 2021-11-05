@@ -14,3 +14,12 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
 @yield('header')
+
+<style> 
+    .hidden svg {
+        display: none;
+    }
+    .hidden p {
+        margin-top: 16px;
+    }
+</style>

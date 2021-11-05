@@ -20,8 +20,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [ControllersMainController::class, 'index']);
-
 Route::get('admin/login',[LoginController::class, 'index'])->name('login');
 Route::post('admin/login/store',[LoginController::class, 'store']);
 
@@ -65,3 +63,9 @@ Route::middleware(['auth'])->group(function () {
         Route::post('upload/services', [UploadController::class, 'store']);
     });
 });
+
+Route::get('/', [ControllersMainController::class, 'index']);
+
+Route::post('/services/load-product', [ControllersMainController::class, 'loadProduct']);
+
+Route::get('category/{id}-{slug}.html', [ControllersMainController::class, 'index']);
