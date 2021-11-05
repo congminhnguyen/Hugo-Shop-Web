@@ -35,3 +35,11 @@
 
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
+<style> 
+    .hidden svg {
+        display: none;
+    }
+    .hidden p {
+        margin: 16px 0;
+    }
+</style>
