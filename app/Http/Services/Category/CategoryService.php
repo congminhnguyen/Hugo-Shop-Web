@@ -72,4 +72,23 @@ class CategoryService{
     public function show(){
         return Category::select('id', 'name')->where('parent_id',0)->orderBy('id')->get();
     }
+
+    public function getId($id){
+        return Category::where('id', $id)->where('active', 1)->firstOrFail();
+    }
+
+    public function getProduct($category, $request){
+        $query = $category->products()
+        ->select('id', 'name', 'price', 'price_sale', 'thumb')
+        ->where('active', 1);
+
+        if ($request->input('price')) {
+            $query->orderBy('price', $request->input('price'));
+        }
+
+        return $query
+            ->orderByDesc('id')
+            ->paginate(12)
+            ->withQueryString();
+    }
 }
