@@ -18,4 +18,25 @@ class ProductService
             ->limit(self::LIMIT)
             ->get();
     }
+
+    public function show($id)
+    {
+        return Product::where('id', $id)
+            ->where('active',1)
+            ->with('category')
+            ->firstOrFail();
+    }
+
+    public function more($id)
+    {
+        $category = Product::select('category_id')->where('id', $id)->firstOrFail();
+        $product_related = Product::select('id', 'name', 'price', 'price_sale', 'thumb')
+            ->where('active', 1)
+            ->where('id', '!=', $id)
+            ->where('category_id', $category->category_id)
+            ->orderByDesc('id')
+            ->limit(8)
+            ->get();
+        return $product_related;
+    }
 }

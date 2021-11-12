@@ -23,7 +23,10 @@
                         </a>
 
                         <span class="stext-105 cl3">
-                            {!! \App\Helpers\Helper::price($product->price, $product->price_sale) !!}
+                            {{-- <mark>{!! \App\Helpers\Helper::price($product->price) !!}<ins>đ</ins></mark> --}}
+                            {!! \App\Helpers\Helper::price($product->price) !!}
+                            {{-- <del>{!! \App\Helpers\Helper::priceSale($product->price_sale) !!}<ins>đ</ins></del> --}}
+                            {!! \App\Helpers\Helper::priceSale($product->price_sale) !!}
                         </span>
                     </div>
 
