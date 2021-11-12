@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\Admin\Users\LoginController;
 use App\Http\Controllers\CategoryController as ControllersCategoryController;
 use App\Http\Controllers\MainController as ControllersMainController;
+use App\Http\Controllers\ProductController as ControllersProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -70,3 +71,4 @@ Route::get('/', [ControllersMainController::class, 'index']);
 Route::post('/services/load-product', [ControllersMainController::class, 'loadProduct']);
 
 Route::get('category/{id}-{slug}.html', [ControllersCategoryController::class, 'index']);
+Route::get('product/{id}-{slug}.html', [ControllersProductController::class, 'index']);

@@ -76,13 +76,25 @@ class Helper
         return false;
     }
 
-    public static function price($price = 0, $priceSale = 0){
-        if($priceSale != 0) {
-            return number_format($priceSale);
-        }
+    public static function price($price = 0){
+        $html = '';
         if($price != 0) {
-            return number_format($price);
+            $html .= '<mark>' . number_format($price) . '<ins>đ</ins></mark>';
         }
-        return '<a href="/contact.html">Liên hệ</a>';
+        else{
+            return '<a href="/contact.html">Liên hệ</a>';
+        }
+        return $html;
+    }
+
+    public static function priceSale($priceSale = 0){
+        $html = '';
+        if($priceSale != 0) {
+            $html .= '<del>' . number_format($priceSale) . '<ins>đ</ins></del>';
+        }
+        else{
+            return '';
+        }
+        return $html;
     }
 }
