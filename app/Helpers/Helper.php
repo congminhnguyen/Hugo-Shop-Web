@@ -79,7 +79,7 @@ class Helper
     public static function price($price = 0){
         $html = '';
         if($price != 0) {
-            $html .= '<mark>' . number_format($price) . '<ins>đ</ins></mark>';
+            $html .= '<del>' . number_format($price) . '<ins>đ</ins></del>';
         }
         else{
             return '<a href="/contact.html">Liên hệ</a>';
@@ -90,7 +90,7 @@ class Helper
     public static function priceSale($priceSale = 0){
         $html = '';
         if($priceSale != 0) {
-            $html .= '<del>' . number_format($priceSale) . '<ins>đ</ins></del>';
+            $html .= '<mark>' . number_format($priceSale) . '<ins>đ</ins></mark>';
         }
         else{
             return '';
