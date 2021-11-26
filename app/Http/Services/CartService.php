@@ -2,6 +2,7 @@
 
 namespace App\Http\Services;
 
+use App\Jobs\SendMail;
 use App\Models\Cart;
 use App\Models\Customer;
 use App\Models\Product;
@@ -93,7 +94,7 @@ class CartService
             Session::flash('success', 'Đặt Hàng Thành Công');
 
             #Queue
-            // SendMail::dispatch($request->input('email'))->delay(now()->addSeconds(2));
+            SendMail::dispatch($request->input('email'))->delay(now()->addSeconds(2));
 
             Session::forget('carts');
         } catch (\Exception $err) {
