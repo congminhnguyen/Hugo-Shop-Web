@@ -89,6 +89,6 @@ class CategoryService{
         return $query
             ->orderByDesc('id')
             ->paginate(12)
-            ->withQueryString();
+            ->withQueryString(); 
     }
 }

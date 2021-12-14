@@ -26,7 +26,11 @@ class MainController extends Controller
             'title' => 'Hugo Shop',
             'sliders' => $this->slider->show(),
             'categories' => $this->category->show(),
-            'products' => $this->product->get()
+            'products' => $this->product->get(),
+            'productsByPC' => $this->product->getByPC(),
+            'productsByManhinh' => $this->product->getByManhinh(),
+            'productsByLaptop' => $this->product->getByLaptop(),
+            'productsByGear' => $this->product->getByGear()
         ]);
     }
 

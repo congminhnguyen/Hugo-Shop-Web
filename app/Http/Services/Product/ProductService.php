@@ -8,6 +8,7 @@ use App\Models\Product;
 class ProductService
 {
     const LIMIT = 12;
+    const PRODUCTSBYCATE = 4;
 
     public function get($page = null){
         return Product:: select('id', 'name', 'price', 'price_sale', 'thumb')
@@ -39,4 +40,50 @@ class ProductService
             ->get();
         return $product_related;
     }
+
+
+    public function getByPC($page = null){
+        return Product:: select('id', 'name', 'price', 'price_sale', 'thumb')
+            ->where('category_id', 1)
+            ->orderByDesc('id')
+            ->when($page !=  null, function($query) use ($page) {
+                $query->offset($page * self::PRODUCTSBYCATE);
+            })
+            ->limit(self::PRODUCTSBYCATE)
+            ->get();
+    }
+
+    public function getByLaptop($page = null){
+        return Product:: select('id', 'name', 'price', 'price_sale', 'thumb')
+            ->where('category_id', 2)
+            ->orderByDesc('id')
+            ->when($page !=  null, function($query) use ($page) {
+                $query->offset($page * self::PRODUCTSBYCATE);
+            })
+            ->limit(self::PRODUCTSBYCATE)
+            ->get();
+    }
+
+    public function getByManhinh($page = null){
+        return Product:: select('id', 'name', 'price', 'price_sale', 'thumb')
+            ->where('category_id', 4)
+            ->orderByDesc('id')
+            ->when($page !=  null, function($query) use ($page) {
+                $query->offset($page * self::PRODUCTSBYCATE);
+            })
+            ->limit(self::PRODUCTSBYCATE)
+            ->get();
+    }
+
+    public function getByGear($page = null){
+        return Product:: select('id', 'name', 'price', 'price_sale', 'thumb')
+            ->where('category_id', 5)
+            ->orderByDesc('id')
+            ->when($page !=  null, function($query) use ($page) {
+                $query->offset($page * self::PRODUCTSBYCATE);
+            })
+            ->limit(self::PRODUCTSBYCATE)
+            ->get();
+    }
+
 }
