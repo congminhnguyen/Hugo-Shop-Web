@@ -34,16 +34,234 @@
 
 
     <!-- Banner -->
-    @foreach ($categories as $category)
-        <div id="topHot">
-            <div class="title">
-                <a href="/category/{{ $category->id }}-{{ \Str::slug($category->name, '-') }}.html">
-                    <h2>{{ $category->name }}</h2>
+    <!-- TOP HOT -->
+    <div id="topHot">
+        <div class="title">
+            <a href="/category/1-pc.html">
+                <h2>PC</h2>
+            </a>
+            <div class="title-chil">
+                <a href="/category/1-pc.html">
+                    <h3>more >></h3>
+                </a>
+            </div> 
+        </div>
+        <div>
+            {{-- productsByPC --}}
+            <div class="row isotope-grid">
+                @foreach ($productsByPC as $key => $product)
+
+
+                    <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+                        <!-- Block2 -->
+                        <div class="block2">
+                            <a href="/product/{{ $product->id }}-{{ Str::slug($product->name, '-') }}.html">
+                                <div class="block2-pic hov-img0">
+                                    <img src="{{ $product->thumb }}" alt="IMG-PRODUCT">
+
+                                    {{-- <a href="#"
+                                            class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+                                            Quick View
+                                        </a> --}}
+                                </div>
+                            </a>
+
+                            <div class="block2-txt flex-w flex-t p-t-14">
+                                <div class="block2-txt-child1 flex-col-l ">
+                                    <a href="/product/{{ $product->id }}-{{ Str::slug($product->name, '-') }}.html"
+                                        class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                        {{ $product->name }}
+                                    </a>
+
+                                    <span class="stext-105 cl3">
+                                        {{-- <mark>{!! \App\Helpers\Helper::price($product->price) !!}<ins>đ</ins></mark> --}}
+                                        {!! \App\Helpers\Helper::price($product->price) !!}
+                                        {{-- <del>{!! \App\Helpers\Helper::priceSale($product->price_sale) !!}<ins>đ</ins></del> --}}
+                                        {!! \App\Helpers\Helper::priceSale($product->price_sale) !!}
+                                    </span>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                @endforeach
+            </div>
+            {{--  --}}
+        </div>
+    </div>
+    <div id="topHot">
+        <div class="title">
+            <div>
+                <a href="/category/2-laptop.html">
+                    <h2>Laptop</h2>
                 </a>
             </div>
+            <div class="title-chil">
+                <a href="/category/2-laptop.html">
+                    <h3>more >></h3>
+                </a>
+            </div> 
         </div>
+        <div>
+            {{-- productsByLaptop --}}
+            <div class="row isotope-grid">
+                @foreach ($productsByLaptop as $key => $product)
 
-    @endforeach
+
+                    <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+                        <!-- Block2 -->
+                        <div class="block2">
+                            <a href="/product/{{ $product->id }}-{{ Str::slug($product->name, '-') }}.html">
+                                <div class="block2-pic hov-img0">
+                                    <img src="{{ $product->thumb }}" alt="IMG-PRODUCT">
+
+                                    {{-- <a href="#"
+                                            class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+                                            Quick View
+                                        </a> --}}
+                                </div>
+                            </a>
+
+                            <div class="block2-txt flex-w flex-t p-t-14">
+                                <div class="block2-txt-child1 flex-col-l ">
+                                    <a href="/product/{{ $product->id }}-{{ Str::slug($product->name, '-') }}.html"
+                                        class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                        {{ $product->name }}
+                                    </a>
+
+                                    <span class="stext-105 cl3">
+                                        {{-- <mark>{!! \App\Helpers\Helper::price($product->price) !!}<ins>đ</ins></mark> --}}
+                                        {!! \App\Helpers\Helper::price($product->price) !!}
+                                        {{-- <del>{!! \App\Helpers\Helper::priceSale($product->price_sale) !!}<ins>đ</ins></del> --}}
+                                        {!! \App\Helpers\Helper::priceSale($product->price_sale) !!}
+                                    </span>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                @endforeach
+            </div>
+            {{--  --}}
+        </div>
+    </div>
+    <div id="topHot">
+        <div class="title">
+            <a href="/category/4-man-hinh.html">
+                <h2>Màn hình</h2>
+            </a>
+            <div class="title-chil">
+                <a href="/category/4-man-hinh.html">
+                    <h3>more >></h3>
+                </a>
+            </div> 
+        </div>
+        <div>
+            {{-- productsByManhinh --}}
+            <div class="row isotope-grid">
+                @foreach ($productsByManhinh as $key => $product)
+
+
+                    <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+                        <!-- Block2 -->
+                        <div class="block2">
+                            <a href="/product/{{ $product->id }}-{{ Str::slug($product->name, '-') }}.html">
+                                <div class="block2-pic hov-img0">
+                                    <img src="{{ $product->thumb }}" alt="IMG-PRODUCT">
+
+                                    {{-- <a href="#"
+                                            class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+                                            Quick View
+                                        </a> --}}
+                                </div>
+                            </a>
+
+                            <div class="block2-txt flex-w flex-t p-t-14">
+                                <div class="block2-txt-child1 flex-col-l ">
+                                    <a href="/product/{{ $product->id }}-{{ Str::slug($product->name, '-') }}.html"
+                                        class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                        {{ $product->name }}
+                                    </a>
+
+                                    <span class="stext-105 cl3">
+                                        {{-- <mark>{!! \App\Helpers\Helper::price($product->price) !!}<ins>đ</ins></mark> --}}
+                                        {!! \App\Helpers\Helper::price($product->price) !!}
+                                        {{-- <del>{!! \App\Helpers\Helper::priceSale($product->price_sale) !!}<ins>đ</ins></del> --}}
+                                        {!! \App\Helpers\Helper::priceSale($product->price_sale) !!}
+                                    </span>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                @endforeach
+            </div>
+            {{--  --}}
+        </div>
+    </div>
+    <div id="topHot">
+        <div class="title">
+            <a href="/category/5-gear.html">
+                <h2>Gear</h2>
+            </a>
+            <div class="title-chil">
+                <a href="/category/5-gear.html">
+                    <h3>more >></h3>
+                </a>
+            </div> 
+        </div>
+        <div>
+            {{-- productsByGear --}}
+            <div class="row isotope-grid">
+                @foreach ($productsByGear as $key => $product)
+
+
+                    <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+                        <!-- Block2 -->
+                        <div class="block2">
+                            <a href="/product/{{ $product->id }}-{{ Str::slug($product->name, '-') }}.html">
+                                <div class="block2-pic hov-img0">
+                                    <img src="{{ $product->thumb }}" alt="IMG-PRODUCT">
+
+                                    {{-- <a href="#"
+                                            class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+                                            Quick View
+                                        </a> --}}
+                                </div>
+                            </a>
+
+                            <div class="block2-txt flex-w flex-t p-t-14">
+                                <div class="block2-txt-child1 flex-col-l ">
+                                    <a href="/product/{{ $product->id }}-{{ Str::slug($product->name, '-') }}.html"
+                                        class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                        {{ $product->name }}
+                                    </a>
+
+                                    <span class="stext-105 cl3">
+                                        {{-- <mark>{!! \App\Helpers\Helper::price($product->price) !!}<ins>đ</ins></mark> --}}
+                                        {!! \App\Helpers\Helper::price($product->price) !!}
+                                        {{-- <del>{!! \App\Helpers\Helper::priceSale($product->price_sale) !!}<ins>đ</ins></del> --}}
+                                        {!! \App\Helpers\Helper::priceSale($product->price_sale) !!}
+                                    </span>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                @endforeach
+            </div>
+            {{--  --}}
+        </div>
+    </div>
+    <!-- end: TOP HOT -->
     {{-- <div class="sec-banner bg0 p-t-80 p-b-50">
         <div class="container">
             <div class="row">
@@ -84,16 +302,17 @@
         <div class="container">
             <div class="p-b-10">
                 <h3 class="ltext-103 cl5" style="font-family: 'Times New Roman', Times, serif">
-                    Tổng quan sản phẩm
+                    TẤT CẢ SẢN PHẨM
                 </h3>
             </div>
 
             <div class="flex-w flex-sb-m p-b-52">
-                <div class="flex-w flex-l-m filter-tope-group m-tb-10">
-                    <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*" style="font-family: 'Times New Roman', Times, serif">
+                {{-- <div class="flex-w flex-l-m filter-tope-group m-tb-10">
+                    <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*"
+                        style="font-family: 'Times New Roman', Times, serif">
                         Tất cả sản phẩm
                     </button>
-                </div>
+                </div> --}}
 
                 {{-- <div class="flex-w flex-c-m m-tb-10">
                 <div
