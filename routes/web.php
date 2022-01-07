@@ -69,6 +69,7 @@ Route::middleware(['auth'])->group(function () {
         #cart
         Route::get('carts/customer', [AdminCartController::class, 'index']);
         Route::get('carts/customers/view/{customer}', [AdminCartController::class, 'show']);
+        Route::post('carts/customers/view/{customer}',[AdminCartController::class, 'update']);
     });
 });
 

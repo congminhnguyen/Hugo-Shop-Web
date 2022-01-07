@@ -24,6 +24,15 @@ class CartController extends Controller
         ]);
     }
 
+    public function update(Request $request, Customer $customer)
+    {
+        $result = $this->cart->updateCustomer($request, $customer);
+        if($result){
+            return redirect('admin/carts/customer');
+        }
+        return redirect()->back();
+    }
+
     public function show(Customer $customer)
     {
         $carts = $this->cart->getProductForCart($customer);

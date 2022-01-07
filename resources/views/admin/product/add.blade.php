@@ -54,6 +54,11 @@
             </div>
 
             <div class="form-group">
+                <label>Specification</label>
+                <textarea name="specification" id="specification-ckeditor" class="form-control">{{ old('specification') }}</textarea>
+            </div>
+
+            <div class="form-group">
                 <label for="">Image</label>
                 <input type="file"  class="form-control" id="upload">
                 <div id="image_show">
@@ -62,17 +67,33 @@
                 <input type="hidden" name="thumb" id="thumb">
             </div>
 
-            <div class="form-group">
-                <label>Active</label>
-                <div class="custom-control custom-radio">
-                    <input class="custom-control-input" value="1" type="radio" id="active" name="active" checked="">
-                    <label for="active" class="custom-control-label">Yes</label>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label>Active</label>
+                    <div class="custom-control custom-radio">
+                        <input class="custom-control-input" value="1" type="radio" id="active" name="active" checked="">
+                        <label for="active" class="custom-control-label">Yes</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input class="custom-control-input" value="0" type="radio" id="no_active" name="active" >
+                        <label for="no_active" class="custom-control-label">No</label>
+                    </div>
                 </div>
-                <div class="custom-control custom-radio">
-                    <input class="custom-control-input" value="0" type="radio" id="no_active" name="active" >
-                    <label for="no_active" class="custom-control-label">No</label>
+
+                <div class="form-group col-md-6">
+                    <label>Hot</label>
+                    <div class="custom-control custom-radio">
+                        <input class="custom-control-input" value="1" type="radio" id="hot" name="hot">
+                        <label for="hot" class="custom-control-label">Yes</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input class="custom-control-input" value="0" type="radio" id="no_hot" name="hot" checked="">
+                        <label for="no_hot" class="custom-control-label">No</label>
+                    </div>
                 </div>
             </div>
+
+            
 
         </div>
 
@@ -87,6 +108,7 @@
 <script>
     // Replace the <textarea id="editor1"> with a CKEditor 4
     // instance, using default configuration.
-    CKEDITOR.replace( 'content-ckeditor' );
+    CKEDITOR.replace( 'content-ckeditor' ); 
+    CKEDITOR.replace( 'specification-ckeditor' ); 
 </script>
 @endsection

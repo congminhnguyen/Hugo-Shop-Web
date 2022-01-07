@@ -10,7 +10,7 @@ class Customer extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'phone', 'address', 'email', 'content'
+        'name', 'phone', 'address', 'email', 'content', 'status'
     ];
 
     public function carts()

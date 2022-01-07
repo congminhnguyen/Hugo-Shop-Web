@@ -8,6 +8,7 @@
             <li>Address: <strong>{{ $customer->address }}</strong></li>
             <li>Email: <strong>{{ $customer->email }}</strong></li>
             <li>Note: <strong>{{ $customer->content }}</strong></li>
+            <li>Status: {!! \App\Helpers\Helper::statusOrder($customer->status) !!}</strong></li>
         </ul>
     </div>
 
@@ -41,10 +42,23 @@
                 </tr>
             @endforeach
                 <tr>
-                    <td colspan="4" class="text-right">Total Money</td>
+                    <td colspan="4" class="text-right"><b>Total Money:</b></td>
                     <td>{{ number_format($total, 0, '', '.') }}</td>
                 </tr>
             </tbody>
         </table>
+        <hr>
+        <div class="container">
+            <form action="" method="POST">
+                <label for="status">Choose a status:</label>
+                <select name="status" id="status">
+                  <option value="Pending">Pending</option>
+                  <option value="Shipping">Shipping</option>
+                  <option value="Complete">Complete</option>
+                </select>
+                <input type="submit" value="Submit">
+                @csrf
+              </form>
+        </div>  
     </div>
 @endsection
