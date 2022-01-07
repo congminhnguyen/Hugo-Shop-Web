@@ -10,6 +10,7 @@
                 <th>Price</th>
                 <th>Price Sale</th>
                 <th>Active</th>
+                <th>Hot</th>
                 <th>Update</th>
                 {{-- <th>Description</th> --}}
                 <th style="width: 100px">&nbsp;</th>
@@ -25,6 +26,7 @@
                     <td>{{ $product->price }}</td>
                     <td>{{ $product->price_sale }}</td>
                     <td>{!! \App\Helpers\Helper::active($product->active) !!}</td>
+                    <td>{!! \App\Helpers\Helper::hot($product->hot) !!}</td>
                     <td>{{ $product->updated_at }}</td>
                     <td>
                         <a href="/admin/products/edit/{{ $product->id }}" class="btn btn-primary btn-sm">

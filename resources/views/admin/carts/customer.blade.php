@@ -9,6 +9,7 @@
             <th>Phone</th>
             <th>Email</th>
             <th>Order Date</th>
+            <th>Status</th>
             <th style="width: 100px">&nbsp;</th>
         </tr>
         </thead>
@@ -20,8 +21,13 @@
                 <td>{{ $customer->phone }}</td>
                 <td>{{ $customer->email }}</td>
                 <td>{{ $customer->created_at }}</td>
+                
+                <td>{!! \App\Helpers\Helper::statusOrder($customer->status) !!}</td>
                 <td>
-                    <a class="btn btn-primary btn-sm" href="/admin/carts/customers/view/{{ $customer->id }}">
+                    {{-- <a class="btn btn-primary btn-sm" href="/admin/carts/customers/edit/{{$customer->id}}">
+                        <i class="fas fa-edit"></i>
+                    </a> --}}
+                    <a class="btn btn-info btn-sm" href="/admin/carts/customers/view/{{ $customer->id }}">
                         <i class="fas fa-eye"></i>
                     </a>
                     {{-- <a href="#" class="btn btn-danger btn-sm"

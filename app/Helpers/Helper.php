@@ -41,6 +41,20 @@ class Helper
         return $active == 0 ? '<span class="btn btn-xs btn-danger">No</span>' : '<span class="btn btn-xs btn-success">Yes</span>';
     }
 
+    public static function hot($hot = 0){
+        return $hot == 0 ? '<span class="btn btn-xs btn-danger">No</span>' : '<span class="btn btn-xs btn-success">Yes</span>';
+    }
+
+    public static function statusOrder($status = ''){
+        if($status == 'Pending' || $status == ''){
+            return '<span class="btn btn-xs btn-secondary">Pending</span>';
+        } elseif ($status == 'Shipping') {
+            return '<span class="btn btn-xs btn-warning">Shipping</span>';
+        } elseif ($status == 'Complete') {
+            return '<span class="btn btn-xs btn-success">Complete</span>';
+        }
+    }
+
     public static function categories($categories, $parent_id = 0){
         $html = '';
         foreach($categories as $key => $category){

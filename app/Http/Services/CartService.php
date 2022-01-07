@@ -6,9 +6,11 @@ use App\Jobs\SendMail;
 use App\Models\Cart;
 use App\Models\Customer;
 use App\Models\Product;
+use Exception;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class CartService
 {
@@ -127,9 +129,23 @@ class CartService
         return Cart::insert($data);
     }
 
-    public function getCustomer()
+    public function getCustomer() 
     {
-        return Customer::orderByDesc('id')->paginate(15);
+        return Customer::orderByDesc('id')->paginate(10);
+    }
+
+    public function updateCustomer($request, $customer) 
+    {
+        try{
+            $customer->fill($request->input());
+            $customer->save();
+            Session::flash('success', 'Updated Successfully');
+        }catch(Exception $err){
+            Session::flash('error', 'Update fail');
+            Log::info($err->getMessage());
+            return false;
+        }
+        return true;
     }
 
     public function getProductForCart($customer)
