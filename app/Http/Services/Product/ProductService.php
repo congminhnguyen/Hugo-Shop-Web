@@ -43,56 +43,56 @@ class ProductService
     }
 
 
-    public function getByPC($page = null){
-        return Product:: select('id', 'name', 'price', 'price_sale', 'thumb')
-            ->where('category_id', 1)
-            ->where('hot', 1)
-            ->where('active', 1)
-            ->orderByDesc('id')
-            ->when($page !=  null, function($query) use ($page) {
-                $query->offset($page * self::PRODUCTSBYCATE);
-            })
-            ->limit(self::PRODUCTSBYCATE)
-            ->get();
-    }
+    // public function getByPC($page = null){
+    //     return Product:: select('id', 'name', 'price', 'price_sale', 'thumb')
+    //         ->where('category_id', 1)
+    //         ->where('hot', 1)
+    //         ->where('active', 1)
+    //         ->orderByDesc('id')
+    //         ->when($page !=  null, function($query) use ($page) {
+    //             $query->offset($page * self::PRODUCTSBYCATE);
+    //         })
+    //         ->limit(self::PRODUCTSBYCATE)
+    //         ->get();
+    // }
 
-    public function getByLaptop($page = null){
-        return Product:: select('id', 'name', 'price', 'price_sale', 'thumb')
-            ->where('category_id', 2)
-            ->where('hot', 1)
-            ->where('active', 1)
-            ->orderByDesc('id')
-            ->when($page !=  null, function($query) use ($page) {
-                $query->offset($page * self::PRODUCTSBYCATE);
-            })
-            ->limit(self::PRODUCTSBYCATE)
-            ->get();
-    }
+    // public function getByLaptop($page = null){
+    //     return Product:: select('id', 'name', 'price', 'price_sale', 'thumb')
+    //         ->where('category_id', 2)
+    //         ->where('hot', 1)
+    //         ->where('active', 1)
+    //         ->orderByDesc('id')
+    //         ->when($page !=  null, function($query) use ($page) {
+    //             $query->offset($page * self::PRODUCTSBYCATE);
+    //         })
+    //         ->limit(self::PRODUCTSBYCATE)
+    //         ->get();
+    // }
 
-    public function getByManhinh($page = null){
-        return Product:: select('id', 'name', 'price', 'price_sale', 'thumb')
-            ->where('category_id', 4)
-            ->where('hot', 1)
-            ->where('active', 1)
-            ->orderByDesc('id')
-            ->when($page !=  null, function($query) use ($page) {
-                $query->offset($page * self::PRODUCTSBYCATE);
-            })
-            ->limit(self::PRODUCTSBYCATE)
-            ->get();
-    }
+    // public function getByManhinh($page = null){
+    //     return Product:: select('id', 'name', 'price', 'price_sale', 'thumb')
+    //         ->where('category_id', 4)
+    //         ->where('hot', 1)
+    //         ->where('active', 1)
+    //         ->orderByDesc('id')
+    //         ->when($page !=  null, function($query) use ($page) {
+    //             $query->offset($page * self::PRODUCTSBYCATE);
+    //         })
+    //         ->limit(self::PRODUCTSBYCATE)
+    //         ->get();
+    // }
 
-    public function getByGear($page = null){
-        return Product:: select('id', 'name', 'price', 'price_sale', 'thumb')
-            ->where('category_id', 5)
-            ->where('hot', 1)
-            ->where('active', 1)
-            ->orderByDesc('id')
-            ->when($page !=  null, function($query) use ($page) {
-                $query->offset($page * self::PRODUCTSBYCATE);
-            })
-            ->limit(self::PRODUCTSBYCATE)
-            ->get();
-    }
+    // public function getByGear($page = null){
+    //     return Product:: select('id', 'name', 'price', 'price_sale', 'thumb')
+    //         ->where('category_id', 5)
+    //         ->where('hot', 1)
+    //         ->where('active', 1)
+    //         ->orderByDesc('id')
+    //         ->when($page !=  null, function($query) use ($page) {
+    //             $query->offset($page * self::PRODUCTSBYCATE);
+    //         })
+    //         ->limit(self::PRODUCTSBYCATE)
+    //         ->get();
+    // }
 
 }

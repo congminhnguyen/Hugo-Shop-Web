@@ -18,7 +18,7 @@ class UploadService
                     'public/' . $pathFull,
                     $name
                 );
-                return '/storage/' . $pathFull . '/' . $name;
+                return '/public/' . $pathFull . '/' . $name;
             } 
             catch (Exception $err) {
                 return false;

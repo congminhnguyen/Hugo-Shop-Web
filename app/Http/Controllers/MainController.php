@@ -27,10 +27,10 @@ class MainController extends Controller
             'sliders' => $this->slider->show(),
             'categories' => $this->category->show(),
             'products' => $this->product->get(),
-            'productsByPC' => $this->product->getByPC(),
-            'productsByManhinh' => $this->product->getByManhinh(),
-            'productsByLaptop' => $this->product->getByLaptop(),
-            'productsByGear' => $this->product->getByGear()
+            // 'productsByPC' => $this->product->getByPC(),
+            // 'productsByManhinh' => $this->product->getByManhinh(),
+            // 'productsByLaptop' => $this->product->getByLaptop(),
+            // 'productsByGear' => $this->product->getByGear()
         ]);
     }
 
